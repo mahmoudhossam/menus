@@ -9,6 +9,9 @@ Tools used
 -----------------
 
 ExpressJS
+
 SequelizeJS
+
 AngularJS
+
 ElasticUI
