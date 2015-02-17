@@ -1,0 +1,21 @@
+{
+  "name": "elmenus",
+  "version": "0.0.0",
+  "authors": [
+    "Mahmoud Hossam <mahmoud.h.hanafy@gmail.com>"
+  ],
+  "main": "app.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "elasticui": "*",
+    "angular": "~1.3.13"
+  }
+}
