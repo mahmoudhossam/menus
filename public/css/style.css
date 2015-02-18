@@ -1,8 +1,8 @@
-body {
-  padding: 50px;
+.content {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 5%;
 }
 
-a {
-  color: #00B7FF;
+.form {
+    width: 50%;
 }
