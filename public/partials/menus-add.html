@@ -1,0 +1,12 @@
+<h1>Add new menu</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10">
+        <form novalidate name="menuaddform" class="form" ng-submit="menuaddform.$valid && menuaddform.submit()">
+            Name <input class="form-control" ng-model="name" required name="name">
+            <br>
+            <input ng-click="submit(name)" class="form-control btn btn-primary" type="submit" value="Add menu">
+        </form>
+    </div>
+  </div>
+</div>
