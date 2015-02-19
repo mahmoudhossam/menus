@@ -1,0 +1,13 @@
+<h1>Editing size {{size.name}}</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10">
+        <form novalidate name="sizeeditform" class="form" ng-submit="sizeeditform.$valid && sizeeditform.submit()">
+            Name <input class="form-control" ng-model="size.name" required name="size.name">
+            <br>
+            Price <input class="form-control" ng-model="size.price" required name="size.price">
+            <input ng-click="submit(size)" class="form-control btn btn-primary" type="submit" value="Save changes">
+        </form>
+    </div>
+  </div>
+</div>
