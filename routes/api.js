@@ -47,7 +47,6 @@ router.delete('/menus/:menuId', function(req, res) {
     });
 });
 
-
 // Category routes
 
 router.post('/menus/:menuId/categories/add', function(req, res) {
@@ -65,7 +64,10 @@ router.get('/menus/:menuId/categories/:categoryId', function(req, res) {
         result.category = category;
         models.Menu.find(menuId).then(function(menu) {
             result.menu = menu;
-            res.json(result);
+            models.Item.findAll({where: {'CategoryId': categoryId}}).then(function(items){
+                result.items = items;
+                res.json(result);
+            });
         });
     });
 });
@@ -88,5 +90,50 @@ router.put('/menus/:menuId/categories/:categoryId', function(req, res) {
         });
     });
 });
+
+// Item routes
+
+router.post('/menus/:menuId/categories/:categoryId/items/add', function(req, res) {
+    var categoryId = req.params.categoryId;
+    models.Item.create({'name': req.body.name, 'CategoryId': categoryId}).then(function(item) {
+        res.json({'id': item.id});
+    });
+});
+
+router.get('/menus/:menuId/categories/:categoryId/items/:itemId', function(req, res) {
+    var categoryId = req.params.categoryId;
+    var itemId = req.params.itemId;
+    var result = {};
+    models.Item.find(itemId).then(function(item) {
+        result.item = item;
+        models.Category.find(categoryId).then(function(category) {
+            result.category = menu;
+            models.Size.findAll({where: {'ItemId': itemId}}).then(function(sizes){
+                result.sizes = sizes;
+                res.json(result);
+            });
+        });
+    });
+});
+
+router.delete('/menus/:menuId/categories/:categoryId/items/:itemId', function(req, res) {
+    var itemId = req.params.itemId;
+    models.Item.find(itemId).then(function(item) {
+        item.destroy().then(function() {
+            res.status(200).end();
+        });
+    });
+});
+
+router.put('/menus/:menuId/categories/:categoryId/items/:itemId', function(req, res) {
+    var itemId = req.params.itemId;
+    models.Item.find(itemId).then(function(item) {
+        item.name = req.body.name;
+        item.save().then(function() {
+            res.status(200).end();
+        });
+    });
+});
+
 
 module.exports = router;
