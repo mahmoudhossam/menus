@@ -3,6 +3,7 @@ var itemControllers = angular.module('itemControllers', []);
 itemControllers.controller("ItemDetailController", ["$scope", "$http", "$window", "$routeParams",
    function(scope, $http, $window, $routeParams) {
 
+    scope.menuId = $routeParams.menuId;
     $http.get('api/menus/' + $routeParams.menuId +'/categories/' + $routeParams.categoryId + '/items/' + $routeParams.itemId).success(function(data) {
         scope.item = data.item;
         scope.category = data.category;
@@ -10,7 +11,7 @@ itemControllers.controller("ItemDetailController", ["$scope", "$http", "$window"
 
     scope.delete = function(name) {
         $http.delete('api/menus/' + $routeParams.menuId +'/categories/' + $routeParams.categoryId + '/items/' + $routeParams.itemId).success(function(){
-            $window.location.href = '#/menus/' + $routeParams.menuId;
+            $window.location.href = '#/menus/' + $routeParams.menuId + '/categories/' + $routeParams.categoryId;
         });
     };
 }]);
