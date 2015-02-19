@@ -1,4 +1,4 @@
-var elmenusApp = angular.module('elmenusApp', ['ngRoute', 'menuControllers', 'categoryControllers']);
+var elmenusApp = angular.module('elmenusApp', ['ngRoute', 'menuControllers', 'categoryControllers', 'itemControllers']);
 
 
 elmenusApp.config(['$routeProvider',
