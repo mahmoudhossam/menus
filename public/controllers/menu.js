@@ -15,11 +15,12 @@ menuControllers.controller("MenuCreateController", ["$scope", "$http", "$window"
 }]);
 
 menuControllers.controller("MenuDetailController", ["$scope", "$http", "$window", "$routeParams",
- function(scope, $http, $window, $routeParams) {
+   function(scope, $http, $window, $routeParams) {
     scope.menuId = $routeParams.menuId;
 
     $http.get('api/menus/' + scope.menuId).success(function(data) {
-        scope.menu = data;
+        scope.menu = data.menu;
+        scope.categories = data.categories;
     });
 
     scope.delete = function(name) {
