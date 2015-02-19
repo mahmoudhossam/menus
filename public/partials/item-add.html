@@ -1,0 +1,14 @@
+<h1>Add new item</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10">
+        <form novalidate name="itemaddform" class="form" ng-submit="itemaddform.$valid && itemaddform.submit()">
+            Category <input class="form-control" ng-readonly="true" ng-model="category.name" required name="category.name">
+            <br>
+            Name <input class="form-control" ng-model="item.name" required name="item.name">
+            <br>
+            <input ng-click="submit(item.name)" class="form-control btn btn-primary" type="submit" value="Add item">
+        </form>
+    </div>
+  </div>
+</div>

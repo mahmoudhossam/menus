@@ -1,0 +1,12 @@
+<h1>Editing item {{item.name}}</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10">
+        <form novalidate name="itemeditform" class="form" ng-submit="itemeditform.$valid && itemeditform.submit()">
+            Name <input class="form-control" ng-model="item.name" required name="item.name">
+            <br>
+            <input ng-click="submit(item.name)" class="form-control btn btn-primary" type="submit" value="Save changes">
+        </form>
+    </div>
+  </div>
+</div>
