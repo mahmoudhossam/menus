@@ -107,7 +107,7 @@ router.get('/menus/:menuId/categories/:categoryId/items/:itemId', function(req, 
     models.Item.find(itemId).then(function(item) {
         result.item = item;
         models.Category.find(categoryId).then(function(category) {
-            result.category = menu;
+            result.category = category;
             models.Size.findAll({where: {'ItemId': itemId}}).then(function(sizes){
                 result.sizes = sizes;
                 res.json(result);
