@@ -2,10 +2,11 @@
 
 Categories:
     <li ng-repeat="category in categories">
-            <a href="#/categories/{{category.id}}">{{category.name}}</a>
+            <a href="#/menus/{{menu.id}}/categories/{{category.id}}">{{category.name}}</a>
     </li>
-    <li ng-hide="categories.length">No categories, <a href="#/categories/add">Add one</a>?</li>
+    <li ng-hide="categories.length">No categories, <a ng-href="#/menus/{{menu.id}}/categories/add">Add one</a>?</li>
 <br>
+<a ng-show="categories.length" ng-href="#/menus/{{menu.id}}/categories/add" class="btn btn-info">Add category</a>
 <a ng-href="#/menus/{{menu.id}}/edit" class="btn btn-warning">Edit menu</a>
 <button data-toggle="modal" data-target="#deleteModal" class="btn btn-danger">Delete menu</button>
 
