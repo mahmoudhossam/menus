@@ -3,10 +3,6 @@
   padding: 5%;
 }
 
-.form {
-    width: 50%;
-}
-
-.thumbnail {
-  width: 30%;
+.form, .thumbnail {
+    width: 30%;
 }
