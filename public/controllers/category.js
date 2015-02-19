@@ -6,6 +6,7 @@ categoryControllers.controller("CategoryDetailController", ["$scope", "$http", "
     $http.get('api/menus/' + $routeParams.menuId +'/categories/' + $routeParams.categoryId).success(function(data) {
         scope.category = data.category;
         scope.menu = data.menu;
+        scope.items = data.items;
     });
 
     scope.delete = function(name) {
