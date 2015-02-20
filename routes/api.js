@@ -139,7 +139,7 @@ router.put('/menus/:menuId/categories/:categoryId/items/:itemId', function(req, 
 
 router.post('/menus/:menuId/categories/:categoryId/items/:itemId/sizes/add', function(req, res) {
     var itemId = req.params.itemId;
-    models.Item.create({'name': req.body.name, 'price': req.body.price, 'ItemId': itemId}).then(function(size) {
+    models.Size.create({'name': req.body.name, 'price': req.body.price, 'ItemId': itemId}).then(function(size) {
         res.json({'id': size.id});
     });
 });
@@ -168,7 +168,7 @@ router.delete('/menus/:menuId/categories/:categoryId/items/:itemId/sizes/:sizeId
 
 router.put('/menus/:menuId/categories/:categoryId/items/:itemId/sizes/:sizeId', function(req, res) {
     var sizeId = req.params.sizeId;
-    models.Size.find(itemId).then(function(size) {
+    models.Size.find(sizeId).then(function(size) {
         size.name = req.body.name;
         size.price = req.body.price;
         size.save().then(function() {
