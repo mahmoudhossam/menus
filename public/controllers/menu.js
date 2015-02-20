@@ -25,7 +25,7 @@ menuControllers.controller("MenuDetailController", ["$scope", "$http", "$window"
 
     scope.delete = function(name) {
         $http.delete('api/menus/' + scope.menuId).success(function(data) {
-            $window.location.href = '/';
+            $window.location.href = '#/';
         });
     };
 }]);
