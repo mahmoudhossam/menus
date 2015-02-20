@@ -36,15 +36,14 @@ menuControllers.controller("MenuEditController", ["$scope", "$http", "$window", 
 
     scope.update = function() {
         $http.get('api/menus/' + scope.menuId).success(function(data) {
-            scope.menu = data;
+            scope.menu = data.menu;
         });
     };
-
+    scope.update();
     scope.submit = function(name) {
         scope.menuId = $routeParams.menuId;
         $http.put('api/menus/' + scope.menuId, {'name': name}).success(function(menu) {
             $window.location.href = '#/menus/' + scope.menuId;
         });
     };
-    scope.update();
 }]);
