@@ -7,6 +7,7 @@ Items:
     </li>
     <li ng-hide="items.length">No items, <a ng-href="#/menus/{{menu.id}}/categories/{{category.id}}/items/add">Add one</a>?</li>
 <br>
+<a ng-show="items.length" ng-href="#/menus/{{menu.id}}/categories/{{category.id}}/items/add" class="btn btn-info">Add item</a>
 <a ng-href="#/menus/{{menu.id}}/categories/{{category.id}}/edit" class="btn btn-warning">Edit category</a>
 <button data-toggle="modal" data-target="#deleteModal" class="btn btn-danger">Delete category</button>
 
