@@ -3,9 +3,9 @@
 
 Sizes:
     <li ng-repeat="size in sizes">
-            <a href="#/menus/{{menuId}}/categories/{{item.id}}/items/{{item.id}}/size/{{size.id}}">{{size.name}}</a>
+            <a href="#/menus/{{menuId}}/categories/{{category.id}}/items/{{item.id}}/sizes/{{size.id}}">{{size.name}}</a>
     </li>
-    <li ng-hide="sizes.length">No sizes, <a ng-href="#/menus/{{menuId}}/categories/{{item.id}}/items/{{item.id}}/size/add">Add one</a>?</li>
+    <li ng-hide="sizes.length">No sizes, <a ng-href="#/menus/{{menuId}}/categories/{{item.id}}/items/{{item.id}}/sizes/add">Add one</a>?</li>
 <br>
 <a ng-href="#/menus/{{menuId}}/categories/{{category.id}}/items/{{item.id}}/edit" class="btn btn-warning">Edit item</a>
 <button data-toggle="modal" data-target="#deleteModal" class="btn btn-danger">Delete item</button>
