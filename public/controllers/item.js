@@ -7,6 +7,7 @@ itemControllers.controller("ItemDetailController", ["$scope", "$http", "$window"
     $http.get('api/menus/' + $routeParams.menuId +'/categories/' + $routeParams.categoryId + '/items/' + $routeParams.itemId).success(function(data) {
         scope.item = data.item;
         scope.category = data.category;
+        scope.sizes = data.sizes;
     });
 
     scope.delete = function(name) {
@@ -30,7 +31,6 @@ itemControllers.controller("ItemCreateController", ["$scope", "$http", "$window"
     });
    };
 }]);
-
 
 itemControllers.controller("ItemEditController", ["$scope", "$http", "$window", "$routeParams",
  function(scope, $http, $window, $routeParams) {
