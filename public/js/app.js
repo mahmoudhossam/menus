@@ -10,8 +10,8 @@ elmenusApp.config(['$routeProvider',
       when('/menus/:menuId/categories/add', {templateUrl: 'partials/category-add.html', controller: 'CategoryCreateController'}).
       when('/menus/:menuId/categories/:categoryId/items/add', {templateUrl: 'partials/item-add.html', controller: 'ItemCreateController'}).
       when('/menus/:menuId/categories/:categoryId/items/:itemId/sizes/add', {templateUrl: 'partials/size-add.html', controller: 'SizeCreateController'}).
-      when('/menus/:menuId/categories/:categoryId/items/:itemId/sizes/{{sizeId}}', {templateUrl: 'partials/size-detail.html', controller: 'SizeDetailController'}).
-      when('/menus/:menuId/categories/:categoryId/items/:itemId/sizes/{{sizeId}}/edit', {templateUrl: 'partials/size-edit.html', controller: 'SizeEditController'}).
+      when('/menus/:menuId/categories/:categoryId/items/:itemId/sizes/:sizeId', {templateUrl: 'partials/size-detail.html', controller: 'SizeDetailController'}).
+      when('/menus/:menuId/categories/:categoryId/items/:itemId/sizes/:sizeId/edit', {templateUrl: 'partials/size-edit.html', controller: 'SizeEditController'}).
       when('/menus/:menuId/categories/:categoryId/items/:itemId', {templateUrl: 'partials/item-detail.html', controller: 'ItemDetailController'}).
       when('/menus/:menuId/categories/:categoryId/items/:itemId/edit', {templateUrl: 'partials/item-edit.html', controller: 'ItemEditController'}).
       when('/menus/:menuId/categories/:categoryId', {templateUrl: 'partials/category-detail.html', controller: 'CategoryDetailController'}).
