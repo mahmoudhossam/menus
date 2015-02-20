@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var models = require('../models');
 
-// Menu routes
+// Menu endpoints
 
 router.get('/menus', function(req, res) {
     models.Menu.findAll().then(function(menus) {
@@ -47,7 +47,7 @@ router.delete('/menus/:menuId', function(req, res) {
     });
 });
 
-// Category routes
+// Category endpoints
 
 router.post('/menus/:menuId/categories/add', function(req, res) {
     var menuId = req.params.menuId;
@@ -91,7 +91,7 @@ router.put('/menus/:menuId/categories/:categoryId', function(req, res) {
     });
 });
 
-// Item routes
+// Item endpoints
 
 router.post('/menus/:menuId/categories/:categoryId/items/add', function(req, res) {
     var categoryId = req.params.categoryId;
@@ -135,5 +135,47 @@ router.put('/menus/:menuId/categories/:categoryId/items/:itemId', function(req, 
     });
 });
 
+// Size endpoints
+
+router.post('/menus/:menuId/categories/:categoryId/items/:itemId/sizes/add', function(req, res) {
+    var itemId = req.params.itemId;
+    models.Item.create({'name': req.body.name, 'price': req.body.price, 'ItemId': itemId}).then(function(size) {
+        res.json({'id': size.id});
+    });
+});
+
+router.get('/menus/:menuId/categories/:categoryId/items/:itemId/sizes/:sizeId', function(req, res) {
+    var sizeId = req.params.sizeId;
+    var itemId = req.params.itemId;
+    var result = {};
+    models.Item.find(itemId).then(function(item) {
+        result.item = item;
+        models.Size.find(sizeId).then(function(size) {
+            result.size = size;
+            res.json(result);
+        });
+    });
+});
+
+router.delete('/menus/:menuId/categories/:categoryId/items/:itemId/sizes/:sizeId', function(req, res) {
+    var sizeId = req.params.sizeId;
+    models.Size.find(sizeId).then(function(size) {
+        size.destroy().then(function() {
+            res.status(200).end();
+        });
+    });
+});
+
+router.put('/menus/:menuId/categories/:categoryId/items/:itemId/sizes/:sizeId', function(req, res) {
+    var sizeId = req.params.sizeId;
+    models.Size.find(itemId).then(function(size) {
+        size.name = req.body.name;
+        size.price = req.body.price;
+        size.save().then(function() {
+            res.status(200).end();
+        });
+    });
+});
+            
 
 module.exports = router;
