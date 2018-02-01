@@ -1,4 +1,4 @@
-Elmenus technical task
+Menus
 ==============
 
 A simple CRUD app for menus, written in javascript.
